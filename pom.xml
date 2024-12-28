@@ -21,6 +21,8 @@
 		<org.mapstructure.version>1.5.5.Final</org.mapstructure.version>
 		<org.projectlombok.mapstruct.binding.version>0.2.0</org.projectlombok.mapstruct.binding.version>
 		<org.projectlombok.version>1.18.34</org.projectlombok.version>
+		<sonar.organization>henriquesaki</sonar.organization>
+		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 	<dependencies>
 		<dependency>
