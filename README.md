@@ -10,7 +10,7 @@ For this project we choose to develop using:
 
 ## How to execute this application?
 1- Clone this project and access the folder
-git clone https://github.com/HenriqueSaKi/cart-purchase.git
+git clone https://github.com/HenriqueSaKi/fiap-tech-challenge-customer.git
 
 2- Install dependencies
 mvn clean install
