@@ -8,7 +8,7 @@ import lombok.Data;
 public class EnderecoDTO {
 
     @JsonProperty(required = true)
-    @Schema(name = "cep", description = "CEP", example = "12345-12")
+    @Schema(name = "cep", description = "CEP", example = "12345-123")
     private String cep;
 
     @JsonProperty(required = true)
