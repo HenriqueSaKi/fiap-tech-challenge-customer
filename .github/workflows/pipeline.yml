@@ -1,4 +1,4 @@
-name: Build ECR image
+name: PIPELINE-FIAP-TECH-CHALLENGE-CUSTOMER-API
 
 on:
   push:
@@ -82,45 +82,45 @@ jobs:
 
       - name: Publish to ECR
         env:
-          ECR_URL: "010526276080.dkr.ecr.us-east-1.amazonaws.com/customer"
+          ECR_URL: "071989740414.dkr.ecr.us-east-1.amazonaws.com/customer"
         run: |
           docker tag customer:latest $ECR_URL:latest
           docker push $ECR_URL:latest
 
-#  deploy-pre:
-#    name: Deploy Pre
-#    runs-on: ubuntu-latest
-#    needs: build-ECR
-#
-#    steps:
-#      - name: Checkout repository
-#        uses: actions/checkout@v3
-#
-#      - name: Authenticate on AWS
-#        uses: aws-actions/configure-aws-credentials@v4
-#        with:
-#          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#          aws-region: 'us-east-1'
-#
-#      - name: Install Kubectl
-#        run: |
-#          curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-#          chmod +x kubectl
-#          sudo mv kubectl /usr/local/bin/
-#
-#      - name: Update Kube Config
-#        env:
-#          EKS_CLUSTER_NAME: ""
-#        run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region us-east-1
-#
-#      - name: Deploy Secrets
-#        run: kubectl apply -f k8s/eks-customer-secrets.yaml
-#
-#      - name: Deploy ConfigMaps
-#        run: kubectl apply -f k8s/eks-customer-configmaps.yaml
-#
-#      - name: Deploy Pre
-#        run: |
-#          kubectl apply -f k8s/eks-customer-deployment.yaml
-#          kubectl apply -f k8s/eks-customer-svc.yaml
+  deploy-pre:
+     name: Deploy Pre
+     runs-on: ubuntu-latest
+     needs: build-ECR
+  
+     steps:
+       - name: Checkout repository
+         uses: actions/checkout@v3
+  
+       - name: Authenticate on AWS
+         uses: aws-actions/configure-aws-credentials@v4
+         with:
+           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+           aws-region: 'us-east-1'
+  
+       - name: Install Kubectl
+         run: |
+           curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+           chmod +x kubectl
+           sudo mv kubectl /usr/local/bin/
+  
+       - name: Update Kube Config
+         env:
+           EKS_CLUSTER_NAME: "EKS-fiap-tech-challenge"
+         run: aws eks update-kubeconfig --name $EKS_CLUSTER_NAME --region us-east-1
+  
+       - name: Deploy Secrets
+         run: kubectl apply -f k8s/eks-customer-secrets.yaml
+  
+       - name: Deploy ConfigMaps
+         run: kubectl apply -f k8s/eks-customer-configmaps.yaml
+  
+       - name: Deploy Pre
+         run: |
+           kubectl apply -f k8s/eks-customer-deployment.yaml
+           kubectl apply -f k8s/eks-customer-svc.yaml
