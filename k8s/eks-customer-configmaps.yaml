@@ -5,4 +5,4 @@ metadata:
   labels:
     app: eks-customer-app
 data:
-  datasource_url: # Atualizar para a URL esperada
+  datasource_url: rds-product-tf.ciwxxlge9yer.us-east-1.rds.amazonaws.com
