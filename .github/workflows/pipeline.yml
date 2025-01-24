@@ -83,7 +83,7 @@ jobs:
 
       - name: Publish to ECR
         env:
-          ECR_URL: "071989740414.dkr.ecr.us-east-1.amazonaws.com/customer"
+          ECR_URL: "666881761373.dkr.ecr.us-east-1.amazonaws.com/customer"
         run: |
           docker tag customer:latest $ECR_URL:latest
           docker push $ECR_URL:latest

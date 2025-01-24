@@ -5,4 +5,4 @@ metadata:
   labels:
     app: eks-customer-app
 data:
-  datasource_url: jdbc:postgresql://rds-customer-tf.ciwxxlge9yer.us-east-1.rds.amazonaws.com:5432/customer
+  datasource_url: jdbc:postgresql://rds-customer-tf.cjdvu1crwior.us-east-1.rds.amazonaws.com:5432/customer
