@@ -9,7 +9,7 @@ public class TelefoneEntityMock {
     TelefoneEntity telefone = new TelefoneEntity();
     telefone.setTipoTelefone(TipoTelefone.CELULAR);
     telefone.setDdd("11");
-    telefone.setNumero("91234-1234");
+    telefone.setNumero("912341234");
     return telefone;
   }
 
