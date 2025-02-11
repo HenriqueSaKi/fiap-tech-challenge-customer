@@ -6,7 +6,7 @@ public class EnderecoEntityMock {
   
   public static EnderecoEntity getMock() {
     EnderecoEntity endereco = new EnderecoEntity();
-    endereco.setCep("12345-123");
+    endereco.setCep("12345123");
     endereco.setLogradouro("Rua exemplo, 123");
     endereco.setComplemento("Bloco A, Apto 123");
     endereco.setBairro("Vila Exemplo");

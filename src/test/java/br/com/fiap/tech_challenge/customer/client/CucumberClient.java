@@ -17,8 +17,8 @@ public interface CucumberClient {
   @GetMapping("/api/v1/actuator/health")
   ResponseEntity<String> healthCheck();
 
-  @PostMapping("/api/v1/customer")
-  ResponseEntity<Object> cadastrarCliente(
+  @PostMapping("/api/v1/cliente")
+  ResponseEntity<String> cadastrarCliente(
       @RequestBody CadastrarClienteDTO cadastrarClienteDTO);
 
 }
