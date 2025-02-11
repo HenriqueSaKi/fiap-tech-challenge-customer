@@ -20,4 +20,18 @@ public class ClienteEntityMock {
     return entity;
   }
 
+  public static ClienteEntity getMock2() {
+    ClienteEntity entity = new ClienteEntity();
+    entity.setId(2L);
+    entity.setCpf("11345678911");
+    entity.setPrimeiroNome("Teste2");
+    entity.setSobrenome("Mockito2");
+    entity.setEmail("teste2@teste.com");
+    entity.setEnderecos(new ArrayList<>());
+    entity.getEnderecos().add(EnderecoEntityMock.getMock());
+    entity.setTelefones(new ArrayList<>());
+    entity.getTelefones().add(TelefoneEntityMock.getMock());
+    return entity;
+  }
+
 }

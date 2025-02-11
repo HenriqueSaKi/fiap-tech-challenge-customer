@@ -1,12 +1,12 @@
 package br.com.fiap.tech_challenge.customer.client;
 
 
+import br.com.fiap.tech_challenge.customer.adapters.driver.controller.model.request.AtualizarClienteDTO;
 import br.com.fiap.tech_challenge.customer.adapters.driver.controller.model.request.CadastrarClienteDTO;
+import br.com.fiap.tech_challenge.customer.core.domain.model.Cliente;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 @FeignClient(
     name = "cucumber",
@@ -20,5 +20,17 @@ public interface CucumberClient {
   @PostMapping("/api/v1/cliente")
   ResponseEntity<String> cadastrarCliente(
       @RequestBody CadastrarClienteDTO cadastrarClienteDTO);
+
+  @GetMapping("/api/v1/cliente/{cpf}")
+  ResponseEntity<Object> buscarClientePorCPF(
+      @PathVariable String cpf);
+
+  @PutMapping("/api/v1/cliente")
+  ResponseEntity<String> atualizarCliente(
+      @RequestBody AtualizarClienteDTO atualizarClienteDTO);
+
+  @DeleteMapping("/api/v1/cliente/id/{id}")
+  ResponseEntity<String> excluirCliente(
+      @PathVariable Long id);
 
 }
