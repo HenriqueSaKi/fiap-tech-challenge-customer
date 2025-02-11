@@ -1,4 +1,4 @@
-package br.com.fiap.tech_challenge.customer.steps;
+package br.com.fiap.tech_challenge.customer;
 
 import br.com.fiap.tech_challenge.customer.adapters.driver.controller.model.request.CadastrarClienteDTO;
 import br.com.fiap.tech_challenge.customer.adapters.driver.controller.request.mock.CadastrarClienteDTOMock;

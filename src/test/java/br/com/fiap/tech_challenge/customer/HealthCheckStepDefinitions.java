@@ -1,4 +1,4 @@
-package br.com.fiap.tech_challenge.customer.steps;
+package br.com.fiap.tech_challenge.customer;
 
 import br.com.fiap.tech_challenge.customer.client.CucumberClient;
 import io.cucumber.java.en.Then;
